@@ -1,0 +1,72 @@
+﻿<Window x:Class="PractSix.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PractSix"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" x:Name="Window">
+    <Canvas>
+        <ToolBar Band="1" BandIndex="1" HorizontalAlignment="Left" Canvas.Top="20" VerticalAlignment="Top" Height="60" Width="70" >
+            <Button MouseEnter="ToolBarColor_MouseEnter" MouseLeave="Button_MouseLeave">
+                <Image Source="/color.png" Height="40"/>
+            </Button>
+            <Button ToolBar.OverflowMode="Always" x:Name="RED" Click="BLACK_Click">
+                <Image Source="/black.png" Height="40"/>
+            </Button>
+            <Button ToolBar.OverflowMode="Always" x:Name="GREEN" Click="GREY_Click">
+                <Image Source="/grey.png" Height="40"/>
+            </Button>
+            <Button ToolBar.OverflowMode="Always" x:Name="BLUE" Click="RED_Click">
+                <Image Source="/Red.png" Height="40"/>
+            </Button>
+            <Button ToolBar.OverflowMode="Always"  x:Name="VIOLET" Click="PINK_Click">
+                <Image Source="/pink.png" Height="40"/>
+            </Button>
+        </ToolBar>
+        <ToolBar Height="60" Width="70" Canvas.Left="75" Canvas.Top="20" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="Close_ToolBar" >
+            <Button Click="PERSON_Click" MouseEnter="ToolBarYOU_MouseEnter" MouseLeave="Button_MouseLeave">
+                <Image Source="/person.png" Height="40" RenderTransformOrigin="0.5,0.5" Width="40" >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-1.193"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-0.313"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Button>
+        </ToolBar>
+        <ToolBar Height="60" Width="70" Canvas.Left="152" Canvas.Top="20" x:Name="Info_ToolBar" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Button  Click="Close_Click" MouseEnter="ToolBarClose_MouseEnter" MouseLeave="Button_MouseLeave">
+                <Image Source="/closetwo.png" Height="40" Width="40"/>
+            </Button>
+        </ToolBar>
+        <Menu Background="White" BorderBrush="Gray" BorderThickness="1">
+            <MenuItem Header="_Файл" x:Name="Menu" MouseEnter="Menu_MouseEnter" MouseLeave="Button_MouseLeave">
+                <MenuItem Header="_Фон" MouseEnter="Color_MouseEnter" MouseLeave="Button_MouseLeave">
+                    <MenuItem Header="_Черный" Click="BLACK_Click"/>
+                    <MenuItem Header="_Серый" Click="GREY_Click"/>
+                    <MenuItem Header="_Красный" Click="RED_Click"/>
+                    <MenuItem Header="_Розовый" Click="PINK_Click"/>
+                </MenuItem>
+                <Separator />
+                <MenuItem x:Name="Close" 
+                          Header="_Закрыть"
+                          Click="Close_Click" MouseEnter="Close_MouseEnter" MouseLeave="Button_MouseLeave">
+                    <MenuItem.Icon>
+                        <Image Source="/close.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_О разработчике" x:Name="Info" Click="PERSON_Click" MouseEnter="YOU_MouseEnter" MouseLeave="Button_MouseLeave" Width="108"/>
+        </Menu>
+        <StatusBar Canvas.Top="389" Height="22" Width="800" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <StatusBarItem Margin="0,1,0,-1">
+                <TextBlock  Text = "" x:Name="CursorPosition" />
+            </StatusBarItem>
+        </StatusBar>
+    </Canvas>
+
+</Window>
